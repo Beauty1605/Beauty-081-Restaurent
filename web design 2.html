@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DelishBite Restaurant</title>
+  <style>
+    /* Global */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+    h2 { text-align: center; margin: 40px 0 10px; font-size: 32px; }
+
+    /* Header */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('restaurant.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      animation: fadeIn 2s;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    header h1 { font-size: 60px; }
+    header p { font-size: 20px; margin-top: 10px; }
+
+    /* Navbar */
+    nav {
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #e63946; }
+
+    /* Section Card */
+    .section-box {
+      width: 85%;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: pop 1s;
+    }
+    @keyframes pop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    /* Menu */
+    .dish {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      font-size: 18px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* Reservation */
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 6px;
+      border: 1px solid #888;
+    }
+    button {
+      padding: 12px 20px;
+      background: #e63946;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #c82f3b; }
+
+    /* Review Cards */
+    .review-card {
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      animation: fadeIn 0.5s;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>DelishBite</h1>
+  <p>Where Taste Meets Perfection</p>
+</header>
+
+<nav>
+  <a href="#menu">Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reservation">Reservation</a>
+  <a href="#reviews">Reviews</a>
+</nav>
+
+<!-- Menu Section -->
+<section id="menu" class="section-box">
+  <h2>Our Menu</h2>
+  <div class="dish"><span>Margherita Pizza</span> <strong>₹299</strong></div>
+  <div class="dish"><span>Veg Cheese Burger</span> <strong>₹199</strong></div>
+  <div class="dish"><span>Pasta Alfredo</span> <strong>₹249</strong></div>
+  <div class="dish"><span>French Fries</span> <strong>₹99</strong></div>
+  <div class="dish"><span>Oreo Shake</span> <strong>₹149</strong></div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="section-box">
+  <h2>Food Gallery</h2>
+  <div class="gallery">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQugXpVRngY9P616NZ57jyx2kl-Xoq_DbC58A&s/400x300/?pizza" />
+    <img src="https://hips.hearstapps.com/hmg-prod/images/marry-me-shrimp-pasta-index-67a283a54fefd.jpg?crop=0.8887235142118862xw:1xh;center,top&resize=1200:*/400x300/?pasta" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwmFZonpFxuGlQ4QwI2-bL2DW9Mx92U3199A&s/400x300/?burger" />
+    <img src="https://plus.unsplash.com/premium_photo-1674327105074-46dd8319164b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29mZmV8ZW58MHx8MHx8fDA%3D/400x300/?coffee" />
+  </div>
+</section>
+
+<!-- Reservation -->
+<section id="reservation" class="section-box">
+  <h2>Reserve Your Table</h2>
+  <form id="reservationForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="date" id="date" required>
+    <input type="time" id="time" required>
+    <select id="people">
+      <option value="1">1 Person</option>
+      <option value="2">2 People</option>
+      <option value="3">3 People</option>
+      <option value="4">4 People</option>
+      <option value="5">5 People</option>
+    </select>
+    <button type="submit">Book Now</button>
+  </form>
+  <p id="resMsg" style="color:green;font-weight:bold;"></p>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" class="section-box">
+  <h2>Customer Reviews</h2>
+  <div id="reviewList"></div>
+
+  <h3 style="margin-top:20px;">Add Your Review</h3>
+  <textarea id="reviewText" placeholder="Write your review..."></textarea>
+  <button onclick="addReview()">Submit Review</button>
+</section>
+
+<footer>
+  © 2025 DelishBite Restaurant • All Rights Reserved
+</footer>
+
+<script>
+// Reservation
+const form = document.getElementById('reservationForm');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('resMsg').innerText = "Table Reserved Successfully!";
+  form.reset();
+});
+
+// Reviews
+function addReview(){
+  const review = document.getElementById('reviewText').value;
+  if(review.trim() === '') return;
+
+  const div = document.createElement('div');
+  div.className = 'review-card';
+  div.innerText = review;
+  document.getElementById('reviewList').appendChild(div);
+
+  document.getElementById('reviewText').value = '';
+}
+</script>
+
+</body>
+</html>
